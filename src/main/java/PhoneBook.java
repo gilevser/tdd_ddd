@@ -10,7 +10,12 @@ public class PhoneBook {
         return phoneNumbers.size();
     }
 
-    public String findByNumber(String name) {
+    public String findByNumber(String number) {
+        for (Map.Entry<String, String> entry : phoneNumbers.entrySet()) {
+            if (entry.getValue().equals(number)) {
+                return entry.getKey();
+            }
+        }
         return null;
     }
 }

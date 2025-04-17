@@ -1,11 +1,9 @@
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class PhoneBook {
 
-    private Map<String, String> phoneNumbers = new HashMap<String, String>(); // phoneNumbers; names;
+    private Map<String, String> phoneNumbers = new TreeMap<>(); // phoneNumbers; names;
 
     public int add(String name, String number) {
         phoneNumbers.put(name, number);
@@ -31,7 +29,8 @@ public class PhoneBook {
     }
 
     public void printAllNames() {
-
-
+        for (String name : phoneNumbers.keySet()) {
+            System.out.println(name);
+        }
     }
 }

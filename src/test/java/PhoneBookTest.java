@@ -44,7 +44,10 @@ public class PhoneBookTest {
 
         phoneBook.printAllNames();
 
-        String expectedOutput = "Ivan Serg Alex";
-        assertEquals(expectedOutput.trim(), outputStream.toString().trim());
+        System.setOut(originalOut);
+        String lineSeparator = System.lineSeparator();
+
+        String expectedOutput = String.join(lineSeparator, "Alex", "Ivan", "Serg") + lineSeparator;
+        assertEquals(expectedOutput, outputStream.toString());
     }
 }

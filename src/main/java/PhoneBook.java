@@ -19,7 +19,12 @@ public class PhoneBook {
         return null;
     }
 
-    public String findByName(String number) {
+    public String findByName(String name) {
+        for (Map.Entry<String, String> entry : phoneNumbers.entrySet()) {
+            if (entry.getKey().equals(name)) {
+                return entry.getValue();
+            }
+        }
         return null;
     }
 }

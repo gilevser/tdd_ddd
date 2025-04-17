@@ -1,5 +1,8 @@
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
@@ -25,5 +28,23 @@ public class PhoneBookTest {
         phoneBook.add("Ivan", "123456");
         assertEquals("123456", phoneBook.findByName("Ivan"));
         assertNull("", phoneBook.findByName("Serg"));
+    }
+
+    @Test
+    public void testPrintAllNames() {
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("Ivan", "123456");
+        phoneBook.add("Serg", "234567");
+        phoneBook.add("Alex", "345678");
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        PrintStream originalOut = System.out;
+        System.setOut(printStream);
+
+        phoneBook.printAllNames();
+
+        String expectedOutput = "Ivan Serg Alex";
+        assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 }

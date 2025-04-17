@@ -1,3 +1,5 @@
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,5 +28,10 @@ public class PhoneBook {
             }
         }
         return null;
+    }
+
+    public void printAllNames() {
+
+
     }
 }
